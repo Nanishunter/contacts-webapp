@@ -11,13 +11,13 @@ export class ContactService {
 
   constructor() {
     this.contacts = [];
-    this.contacts.push(new Contact('Antti', 'Karjalainen'));
-    this.contacts.push(new Contact('Arto', 'Lindgren'));
-    this.contacts.push(new Contact('Iso', 'Mies'));
+    this.contacts.push(new Contact(1, 'Antti', 'Karjalainen'));
+    this.contacts.push(new Contact(2, 'Arto', 'Lindgren'));
+    this.contacts.push(new Contact(3, 'Iso', 'Mies'));
 
   }
 
-  getContacts (): Contact[] {
+  getContacts(): Contact[] {
     return this.contacts;
   }
 }
