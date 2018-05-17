@@ -21,6 +21,10 @@ export class ContactDetailComponent implements OnInit {
      this.contactService.getContactById(contactId).subscribe(response => {
        this.contact = response;
        console.log(this.contact);
+     }, error => {
+       console.error('Getting contact failed!');
+       console.error(error);
+       this.router.navigate(['/contacts']);
 
      });
 
