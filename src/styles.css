@@ -3,4 +3,5 @@
 .contacts-app-title{
   font-size: 35px;
   color: black;
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 }
