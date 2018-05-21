@@ -12,6 +12,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {MaterialComponentsModule} from './contact/ui/material-components/material-components.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {AvatarModule} from 'ng2-avatar';
+import { TextToColorPipe } from './contact/pipes/text-to-color.pipe';
+import {NgPipesModule} from 'ngx-pipes';
 
 
 
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ContactListComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    TextToColorPipe
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     MaterialComponentsModule,
     FlexLayoutModule,
-    AvatarModule.forRoot()
+    AvatarModule.forRoot(),
+    NgPipesModule
+
   ],
   providers: [
     ContactService,
