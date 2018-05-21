@@ -1,16 +1,18 @@
-
 <mat-sidenav-container class="cw-sidenav-container">
-  <mat-sidenav #sidenav align="start" [mode]="'over'" [opened]="false" class="cw-sidenav" >
+  <mat-sidenav #sidenav align="start" [mode]="'over'" [opened]="false" class="cw-sidenav">
 
     <!-- Sidenav content -->
     <div>
       <div fxLayout="column" fxLayoutAlign="center center" class="cw-sidenav-user-area">
-        <div>
+
+        <div fxLayout="row" fxLayoutAlign="center center">
           <mat-icon class="cw-sidenav-avatar" color="primary"> account_circle</mat-icon>
         </div>
+        <div fxLayout="row" fxLayoutAlign="center center">ISOMIES</div>
+
+
         <div>
-          <span>ISOMIES</span>
-          
+
         </div>
       </div>
       <div>
@@ -25,8 +27,8 @@
       <!-- toolbar -->
 
       <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon class="mat-18">menu</mat-icon>
-        </button>
+        <mat-icon class="mat-18">menu</mat-icon>
+      </button>
 
       <span>Contacts Application</span>
     </mat-toolbar>
@@ -34,6 +36,9 @@
       <! -- App -->
       <router-outlet></router-outlet>
     </div>
+  </div>
+  <div>
+    <!-- Component is loaded here -->
   </div>
 </mat-sidenav-container>
 
