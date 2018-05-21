@@ -12,10 +12,14 @@
 
 
 
-    <h4 matLine>{{contact.firstName}}  {{contact.lastName}}</h4>
+    <h4 matLine>{{contact.firstName}}  {{contact.lastName}}</h4>';
     <p matLine>{{contact.phoneNumber}}</p>
   </mat-list-item>
 </mat-list>
+<button mat-fab (click)="onCreateNew()" color="accent" class="cw-fab">
+  <mat-icon >add</mat-icon>
+</button>
+
 
 
 

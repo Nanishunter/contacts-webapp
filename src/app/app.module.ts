@@ -19,6 +19,7 @@ import {NgPipesModule} from 'ngx-pipes';
 
 const appRoutes: Routes = [
   { path: 'contacts', component: ContactListComponent},
+  { path: 'contacts/new', component: ContactDetailComponent},
   { path: 'contacts/:id', component: ContactDetailComponent},
   { path: '', redirectTo: '/contacts', pathMatch: 'full'}
 ]
@@ -36,9 +37,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     MaterialComponentsModule,
     FlexLayoutModule,
-    AvatarModule.forRoot(),
+    AvatarModule,
     NgPipesModule
-
   ],
   providers: [
     ContactService,

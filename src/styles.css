@@ -9,3 +9,14 @@ html, body {
   width: 100%;
 overflow:hidden;
 }
+
+.cw-fab {
+  position: absolute !important;
+  bottom: 20px;
+  right: 20px;
+
+}
+.cw-card-layout{
+  margin: 24px;
+
+}
