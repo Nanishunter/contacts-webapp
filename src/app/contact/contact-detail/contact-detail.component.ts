@@ -20,18 +20,18 @@ export class ContactDetailComponent implements OnInit {
     const contactId = this.route.snapshot.paramMap.get('id');
 
     if (contactId == null) {
-       return;
+      return;
     }
-     console.log(contactId);
-     this.contactService.getContactById(contactId).subscribe(response => {
-       this.contact = response;
-       console.log(this.contact);
-     }, error => {
-       console.error('Getting contact failed!');
-       console.error(error);
-       this.router.navigate(['/contacts']);
+    console.log(contactId);
+    this.contactService.getContactById(contactId).subscribe(response => {
+      this.contact = response;
+      console.log(this.contact);
+    }, error => {
+      console.error('Getting contact failed!');
+      console.error(error);
+      this.router.navigate(['/contacts']);
 
-     });
+    });
 
   }
 
@@ -39,4 +39,10 @@ export class ContactDetailComponent implements OnInit {
     this.router.navigate(['/contacts']);
   }
 
+  onSave(): void {
+    console.log('TODO: Save');
+  }
+
 }
+
+
