@@ -22,15 +22,16 @@
   </mat-sidenav>
 <div fxFlexFill class="cw-sidenav-content">
     <!-- App Content -->
-    <mat-toolbar color="primary">
+    <!--<mat-toolbar color="primary">-->
 
-      <!-- toolbar -->
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon class="mat-18">menu</mat-icon>
-      </button>
+      <!--&lt;!&ndash; toolbar &ndash;&gt;-->
+      <!--<button mat-icon-button (click)="sidenav.toggle()">-->
+        <!--<mat-icon class="mat-18">menu</mat-icon>-->
+      <!--</button>-->
 
-      <span>Contacts Application</span>
-    </mat-toolbar>
+      <!--<span>Contacts Application</span>-->
+    <!--</mat-toolbar>-->
+  <cw-toolbar (onMenuClick)="sidenav.toggle()"></cw-toolbar>
     <div class="cw-app-container">
       <! -- App -->
       <router-outlet></router-outlet>
