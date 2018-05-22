@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ContactService} from '../contact.service';
 import {Contact} from '../contact-list/contact';
+import {ToolbarService} from '../ui/toolbar/toolbar.service';
+import {ToolbarAction} from '../ui/toolbar/toolbar-action';
+import {ToolbarOptions} from '../ui/toolbar/toolbar-options';
+
 
 @Component({
   selector: 'cw-contact-detail',
@@ -11,38 +15,73 @@ import {Contact} from '../contact-list/contact';
 export class ContactDetailComponent implements OnInit {
 
   contact: Contact;
+  editingEnabled: Boolean;
+  contactId; any;
 
-  constructor(private router: Router, private route: ActivatedRoute, private contactService: ContactService) {
+  constructor(private router: Router, private route: ActivatedRoute, private contactService: ContactService, private toolbar: ToolbarService) {
     this.contact = new Contact();
+    this.editingEnabled = false;
   }
 
   ngOnInit() {
-    const contactId = this.route.snapshot.paramMap.get('id');
 
-    if (contactId == null) {
-      return;
-    }
-    console.log(contactId);
-    this.contactService.getContactById(contactId).subscribe(response => {
-      this.contact = response;
-      console.log(this.contact);
-    }, error => {
-      console.error('Getting contact failed!');
-      console.error(error);
-      this.router.navigate(['/contacts']);
+    this.contactId = this.route.snapshot.paramMap.get('id');
+    let toolbarActions: ToolbarAction [];
 
-    });
 
-  }
+    if (this.contactId == null) {
 
+      /* create contact */
+
+      this.editingEnabled = true;
+      toolbarActions = [];
+
+    } else {
+      /* view contact */
+      toolbarActions = [new ToolbarAction(this.onEdit.bind(this),'edit')];
+
+      this.contactService.getContactById(this.contactId).subscribe(response => {
+        this.contact = response;
+        console.log(this.contact);
+      }, error => {
+        console.error('Getting contact failed!');
+        console.error(error);
+        this.router.navigate(['/contacts']);
+
+      });
+      }
+
+      }
   onNavigateBack(): void {
     this.router.navigate(['/contacts']);
   }
-
   onSave(): void {
-    console.log('TODO: Save');
+    if (this.contactId == null) {
+      // Create contact
+      this.editingEnabled = false;
+      this.contactService.createContact(this.contact).subscribe(response => {
+        this.contact = response;
+        console.log('Created contact');
+        console.log(this.contact);
+        const toolbarActions: ToolbarAction[] = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
+        this.toolbar.toolbarOptions.next(
+          new ToolbarOptions(
+            'Contact', toolbarActions));
+      });
+    } else {
+      // Edit contact
+      this.editingEnabled = false;
+      this.contactService.updateContact(this.contact).subscribe(response => {
+        this.contact = response;
+      });
+    }
+
+
   }
 
+  onEdit() {
+    this.editingEnabled = !this.editingEnabled;
+  }
 }
 
 

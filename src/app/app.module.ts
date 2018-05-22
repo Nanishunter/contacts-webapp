@@ -15,6 +15,8 @@ import {AvatarModule} from 'ng2-avatar';
 import { TextToColorPipe } from './contact/pipes/text-to-color.pipe';
 import {NgPipesModule} from 'ngx-pipes';
 import { ToolbarComponent } from './contact/ui/toolbar/toolbar.component';
+import {ToolbarService} from './contact/ui/toolbar/toolbar.service';
+import {ToolbarOptions} from './contact/ui/toolbar/toolbar-options';
 
 
 
@@ -44,7 +46,9 @@ const appRoutes: Routes = [
   ],
   providers: [
     ContactService,
-    ContactHttpService
+    ContactHttpService,
+    ToolbarService
+
   ],
   bootstrap: [AppComponent]
 })

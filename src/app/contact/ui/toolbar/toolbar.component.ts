@@ -1,4 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {ToolbarService} from './toolbar.service';
+import {ToolbarOptions} from './toolbar-options';
 
 @Component({
   selector: 'cw-toolbar',
@@ -7,17 +9,22 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  @Output() onMenuClick: EventEmitter<any>;
+  @Output() MenuClick: EventEmitter<any>;
+  options: ToolbarOptions;
 
-  constructor() {
-    this.onMenuClick = new EventEmitter<any>();
+  constructor(private toolbar: ToolbarService) {
+    this.MenuClick = new EventEmitter<any>();
   }
 
   ngOnInit() {
+    this.toolbar.toolbarOptions.subscribe((options: ToolbarOptions) => {
+      this.options = options;
+
+    });
   }
 
-  menuClick() {
-    this.onMenuClick.emit();
+  onMenuClick() {
+    this.MenuClick.emit();
   }
 
 }
