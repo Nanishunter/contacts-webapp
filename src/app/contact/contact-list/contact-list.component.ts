@@ -20,7 +20,7 @@ export class ContactListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.toolbar.toolbarOptions.next(new ToolbarOptions('Contacts', []));
+    this.toolbar.toolbarOptions.next(new ToolbarOptions(false, 'Contacts', []));
 
 
     this.contactService.getContacts().subscribe(response => {
@@ -28,13 +28,14 @@ export class ContactListComponent implements OnInit {
       console.log(this.contacts);
     });
   }
+
   onContactSelect(contact): void {
-     // console.log(contact.id);
-    this.router.navigate( ['/contacts', contact.id]);
+    // console.log(contact.id);
+    this.router.navigate(['/contacts', contact.id]);
   }
 
   onCreateNew(): void {
-    this.router.navigate( ['/contacts/new']);
-}
+    this.router.navigate(['/contacts/new']);
+  }
 
 }

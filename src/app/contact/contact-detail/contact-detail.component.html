@@ -2,12 +2,13 @@
 
 
 
-  <button mat-icon-button (click)="onNavigateBack()">
-    <mat-icon>arrow_back</mat-icon>
-  </button>
-  <mat-card-actions *ngIf="editingEnabled" align="end">
-    <button mat-icon-button (click)="onDelete()">
+
+
+  <mat-card-actions *ngIf="editingEnabled && contactId" align="end">
+
+    <button mat-icon-button (click)="onDelete() " color="primary">
       <mat-icon>delete</mat-icon>
+
     </button>
 
   </mat-card-actions>
