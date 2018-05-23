@@ -51,6 +51,9 @@ export class ContactDetailComponent implements OnInit {
       });
       }
 
+    this.toolbar.toolbarOptions.next(
+      new ToolbarOptions(
+        'Contact', toolbarActions));
       }
   onNavigateBack(): void {
     this.router.navigate(['/contacts']);
@@ -60,13 +63,9 @@ export class ContactDetailComponent implements OnInit {
       // Create contact
       this.editingEnabled = false;
       this.contactService.createContact(this.contact).subscribe(response => {
-        this.contact = response;
-        console.log('Created contact');
-        console.log(this.contact);
-        const toolbarActions: ToolbarAction[] = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
-        this.toolbar.toolbarOptions.next(
-          new ToolbarOptions(
-            'Contact', toolbarActions));
+        console.log(response);
+
+        this.router.navigate(['/contacts']);
       });
     } else {
       // Edit contact
@@ -81,6 +80,13 @@ export class ContactDetailComponent implements OnInit {
 
   onEdit() {
     this.editingEnabled = !this.editingEnabled;
+  }
+
+  onDelete() {
+    this.editingEnabled = false;
+    this.contactService.deleteContact(this.contact).subscribe(() => {
+      this.router.navigate(['/']);
+    });
   }
 }
 

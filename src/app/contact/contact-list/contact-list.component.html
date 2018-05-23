@@ -1,6 +1,6 @@
 <mat-list>
 
-  <mat-list-item *ngFor="let contact of contacts | orderBy: '-lastName' " (click)="onContactSelect(contact)">
+  <mat-list-item *ngFor="let contact of contacts | orderBy: 'firstName' " (click)="onContactSelect(contact)">
     <avatar  matListIcon class="cw-contact-list-item-avatar"
             [name]="contact.firstName"
              [displayType]="'circle'"

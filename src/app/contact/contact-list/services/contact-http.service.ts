@@ -15,6 +15,7 @@ export class ContactHttpService {
     this.url = environment.apiEndpointUrl;
 
   }
+
   get(): Observable<Contact[]> {
     return this.httpClient.get(this.url).pipe(map(response => {
       return response as Contact[];
@@ -25,7 +26,8 @@ export class ContactHttpService {
     return this.httpClient.get(this.url + '/' + id).pipe(map(response => {
       return response as Contact;
     }));
-}
+  }
+
   put(contact): Observable<Contact> {
     return this.httpClient.put(this.url + '/' + contact.id, contact).pipe(map(response => {
       return response as Contact;
@@ -37,5 +39,13 @@ export class ContactHttpService {
       return response as Contact;
     }));
   }
+
+  delete(contact): Observable<any> {
+
+   return this.httpClient.delete(this.url + '/' + contact.id);
+
+
+  }
+
 
 }
