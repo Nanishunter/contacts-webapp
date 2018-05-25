@@ -52,7 +52,7 @@ export class ContactDetailComponent implements OnInit {
       });
     }
 
-    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'contact', toolbarActions));
+    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contact', toolbarActions));
   }
 
 
@@ -95,7 +95,7 @@ export class ContactDetailComponent implements OnInit {
       console.log('edit mode disabled');
       toolbarActions = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
     }
-    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'contact', toolbarActions));
+    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contact', toolbarActions));
   }
 
   onDelete() {

@@ -21,7 +21,7 @@ export class ContactListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.toolbar.setToolbarOptions(new ToolbarOptions(false, 'contacts', []));
+    this.toolbar.setToolbarOptions(new ToolbarOptions(false, 'Contacts', []));
 
 
     this.contactService.getContacts().subscribe(response => {
