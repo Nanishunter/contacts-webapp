@@ -3,10 +3,12 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  font-size: 20px;
+  animation: infinite;
 }
 
 .cw-sidenav {
-  width: 300px
+  width: 150px
 
 
 }

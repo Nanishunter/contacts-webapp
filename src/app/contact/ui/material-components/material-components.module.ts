@@ -6,7 +6,7 @@ import {
   MatDividerModule,
   MatIconModule, MatInputModule,
   MatListModule,
-  MatSidenavModule,
+  MatSidenavModule, MatSnackBar,
   MatToolbarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -21,6 +21,7 @@ const materialModules = [
   MatListModule,
   MatCardModule,
   MatInputModule
+
 
 ];
 

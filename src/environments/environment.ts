@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiEndpointUrl: 'http://localhost:3000/contacts'
+  apiEndpointUrl: 'http://localhost:59605/api/contacts'
 };
 
 /*
@@ -14,3 +14,4 @@ export const environment = {
  * because it will have performance impact when throw error
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+

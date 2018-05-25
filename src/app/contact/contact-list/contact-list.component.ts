@@ -20,7 +20,8 @@ export class ContactListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.toolbar.toolbarOptions.next(new ToolbarOptions(false, 'Contacts', []));
+
+    this.toolbar.setToolbarOptions(new ToolbarOptions(false, 'contacts', []));
 
 
     this.contactService.getContacts().subscribe(response => {
