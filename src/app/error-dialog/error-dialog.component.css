@@ -1,0 +1,8 @@
+.cw-error-dialog {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  animation: infinite;
+}

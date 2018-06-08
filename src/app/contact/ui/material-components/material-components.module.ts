@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatDialogModule,
   MatDividerModule,
   MatIconModule, MatInputModule,
   MatListModule,
@@ -21,7 +21,8 @@ const materialModules = [
   MatListModule,
   MatCardModule,
   MatInputModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+MatDialogModule
 
 
 ];
