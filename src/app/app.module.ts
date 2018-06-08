@@ -20,6 +20,7 @@ import {ToolbarOptions} from './contact/ui/toolbar/toolbar-options';
 import { LoginComponent } from './user/login/login.component';
 import {AuthenticationService} from './user/services/authentication.service';
 import {TokenService} from './user/services/token.service';
+import {MatSnackBar} from '@angular/material';
 
 
 
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
     TextToColorPipe,
     ToolbarComponent,
     LoginComponent
+
   ],
   imports: [
     BrowserModule,
@@ -47,14 +49,16 @@ const appRoutes: Routes = [
     MaterialComponentsModule,
     FlexLayoutModule,
     AvatarModule,
-    NgPipesModule
+    NgPipesModule,
+
   ],
   providers: [
     ContactService,
     ContactHttpService,
     ToolbarService,
     AuthenticationService,
-    TokenService
+    TokenService,
+
 
   ],
   bootstrap: [AppComponent]
