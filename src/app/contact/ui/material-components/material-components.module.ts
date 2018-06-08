@@ -22,7 +22,7 @@ const materialModules = [
   MatCardModule,
   MatInputModule,
   MatSnackBarModule,
-MatDialogModule
+  MatDialogModule
 
 
 ];

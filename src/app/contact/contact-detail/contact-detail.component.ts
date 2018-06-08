@@ -109,7 +109,7 @@ export class ContactDetailComponent implements OnInit {
     this.editingEnabled = false;
     this.contactService.deleteContact(this.contact).subscribe(() => {
       this.router.navigate(['/contacts']);
-      this.snackbar.open('Delete!', 'OK', {duration: 3000});
+      this.snackbar.open('Removed contact successfully.', 'OK', {duration: 3000});
     });
   }
 }
