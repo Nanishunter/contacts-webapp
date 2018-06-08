@@ -20,6 +20,9 @@ import {ToolbarOptions} from './contact/ui/toolbar/toolbar-options';
 import { LoginComponent } from './user/login/login.component';
 import {AuthenticationService} from './user/services/authentication.service';
 import {TokenService} from './user/services/token.service';
+import {MatSnackBar} from '@angular/material';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import {DialogServiceService} from './user/services/dialog-service.service';
 
 
 
@@ -37,7 +40,9 @@ const appRoutes: Routes = [
     ContactDetailComponent,
     TextToColorPipe,
     ToolbarComponent,
-    LoginComponent
+    LoginComponent,
+    ErrorDialogComponent
+
   ],
   imports: [
     BrowserModule,
@@ -47,16 +52,20 @@ const appRoutes: Routes = [
     MaterialComponentsModule,
     FlexLayoutModule,
     AvatarModule,
-    NgPipesModule
+    NgPipesModule,
+
   ],
   providers: [
     ContactService,
     ContactHttpService,
     ToolbarService,
     AuthenticationService,
-    TokenService
+    TokenService,
+    DialogServiceService
+
 
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ErrorDialogComponent]
 })
 export class AppModule { }

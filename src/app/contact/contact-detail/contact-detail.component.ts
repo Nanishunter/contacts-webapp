@@ -5,13 +5,17 @@ import {Contact} from '../contact-list/contact';
 import {ToolbarService} from '../ui/toolbar/toolbar.service';
 import {ToolbarAction} from '../ui/toolbar/toolbar-action';
 import {ToolbarOptions} from '../ui/toolbar/toolbar-options';
+import {MatSnackBar} from '@angular/material';
 
 
 @Component({
   selector: 'cw-contact-detail',
   templateUrl: './contact-detail.component.html',
   styleUrls: ['./contact-detail.component.css']
+
 })
+
+
 export class ContactDetailComponent implements OnInit {
 
   contact: Contact;
@@ -19,7 +23,8 @@ export class ContactDetailComponent implements OnInit {
   contactId;
   any;
 
-  constructor(private router: Router, private route: ActivatedRoute, private contactService: ContactService, private toolbar: ToolbarService) {
+
+  constructor(private router: Router, private route: ActivatedRoute, private contactService: ContactService, private toolbar: ToolbarService, public snackbar: MatSnackBar) {
     this.contact = new Contact();
     this.editingEnabled = false;
   }
@@ -28,7 +33,6 @@ export class ContactDetailComponent implements OnInit {
 
     this.contactId = this.route.snapshot.paramMap.get('id');
     let toolbarActions: ToolbarAction [];
-
 
     if (this.contactId == null) {
 
@@ -59,12 +63,11 @@ export class ContactDetailComponent implements OnInit {
   onSave(): void {
     if (this.contactId == null) {
       // Create contact
-      this.editingEnabled = false;
+      this.editingEnabled = false
       this.contactService.createContact(this.contact).subscribe(response => {
         console.log(response);
-
-
         this.router.navigate(['/contacts']);
+        this.snackbar.open('Created contact!', 'OK', {duration: 3000});
       });
     } else {
       // Edit contact
@@ -72,6 +75,7 @@ export class ContactDetailComponent implements OnInit {
       this.editingEnabled = false;
       this.contactService.updateContact(this.contact).subscribe(response => {
         this.contact = response;
+        this.snackbar.open('Save success!', 'OK', {duration: 2000});
       });
     }
 
@@ -82,7 +86,10 @@ export class ContactDetailComponent implements OnInit {
     let toolbarActions: ToolbarAction[];
     this.editingEnabled = !this.editingEnabled;
     if (this.editingEnabled === true) {
-      // Edit mode on
+      // Edit mode on with snackbar
+      this.snackbar.open('Edit mode enabled', 'OK', {
+        duration: 3000
+      });
       console.log('edit mode enabled');
       toolbarActions = [
         new ToolbarAction(this.onDelete.bind(this), 'delete'),
@@ -102,6 +109,7 @@ export class ContactDetailComponent implements OnInit {
     this.editingEnabled = false;
     this.contactService.deleteContact(this.contact).subscribe(() => {
       this.router.navigate(['/contacts']);
+      this.snackbar.open('Delete!', 'OK', {duration: 3000});
     });
   }
 }

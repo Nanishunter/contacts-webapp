@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatDialogModule,
   MatDividerModule,
   MatIconModule, MatInputModule,
   MatListModule,
-  MatSidenavModule, MatSnackBar,
+  MatSidenavModule, MatSnackBar, MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -20,7 +20,9 @@ const materialModules = [
   MatDividerModule,
   MatListModule,
   MatCardModule,
-  MatInputModule
+  MatInputModule,
+  MatSnackBarModule,
+MatDialogModule
 
 
 ];
